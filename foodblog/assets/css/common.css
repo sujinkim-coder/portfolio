@@ -1,0 +1,156 @@
+/** 모든 페이지에서 사용될 공통적인 내용을 정의 **/
+
+/*--------------------------------------------- 
+ * 공통
+ *---------------------------------------------*/
+* {
+    font-family: "Noto Sans KR";
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color : #000;
+}
+
+/*--------------------------------------------- 
+ * 상단 영역
+ *---------------------------------------------*/
+.header {
+    /* background-color:antiquewhite; */
+
+    /* 그림자 */
+    box-shadow: 0 1px 3px #0002;
+
+    /* 상단 고정 */
+    position: fixed; /* fixed나 absolute는 기본적으로 부모를 가득 채우지 못한다.
+                        그래서 명시적으로 width : 100%을 꼭 줘야함 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9000;
+
+    /* 다른 영역위에 떠 있으므로 아래쪽에 스크롤되는 내용을 가리기 위해 배경색상 흰색 처리 */
+    background-color: #fff;
+}
+
+/* 상단 영역 div에 속한 아이템들의 배치 */
+.header div {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 상단 영역 양쪽의 아이콘 버튼 공통 속성 */
+.header .nav a {
+    padding: 16px;
+}
+
+.header .nav a:hover {
+    /* background-color: aqua; */
+}
+
+.header .nav h1 {
+    display: flex; /* 자식 태그인 h1한테 정렬 효과 주기위해,
+                 부모 요소와는 별개로 display : flex를 또 줘야함 */
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+/*--------------------------------------------- 
+ * 내용 영역
+ *---------------------------------------------*/
+.contents {
+    /* background-color:rgb(231, 255, 238); */
+    
+    /* 상단 영역에 가려지는 만큼 여백을 확보 */
+    padding-top: 48px;
+    width: 100%;
+}
+
+/* 내용 영역 div에 속한 아이템들의 배치 */
+.contents div {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/*--------------------------------------------- 
+ * 하단 영역
+ *---------------------------------------------*/
+.footer {
+    /* background-color:rgb(240, 240, 240); */
+}
+
+/* 하단 영역 div에 속한 아이템들의 배치 */
+.footer .footer_container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+}
+
+.footer .footer_container .footer-item {
+    /* 각 영역이 동일한 비율로 공간을 나누어 갖도록 설정 */ 
+    flex : 1;
+    padding : 14px;
+}
+
+.footer .footer_container .footer-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 22px 0;
+    /* 영어 대문자 변환 */
+    text-transform: uppercase;
+}
+
+.footer .footer_container .footer-item:nth-child(1) p {
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 300;
+}
+
+.footer .footer_container .footer-item:nth-child(2) a {
+    display: flex;
+    margin: 20px 0;
+    padding: 0 10px;
+    /* background-color: aqua; */
+}
+
+.footer .footer_container .footer-item:nth-child(2) a img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.footer .footer_container .footer-item:nth-child(2) a h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.footer .footer_container .footer-item:nth-child(2) a p {
+    line-height: 1.2;
+}
+
+.footer .footer_container .footer-item:nth-child(3) ul li {
+    display: inline-block;
+    background-color: gray;
+    color: #fff;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.footer .footer_container .footer-item:nth-child(3) ul li:first-child {
+    background-color: #222;
+
+}
+
+@media only screen and (max-width: 768px) {
+    .footer .footer_container {
+        flex-direction: column;
+    }
+}

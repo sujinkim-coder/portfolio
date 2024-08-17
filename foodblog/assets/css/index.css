@@ -1,0 +1,161 @@
+/** 메인 페이지 전용 스타일 */
+
+
+/*--------------------------------------------- 
+ * 음식 갤러리 영역
+ *---------------------------------------------*/
+    .contents .contents_container .ul_01 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contents .contents_container .ul_01 li {
+        
+        /* 부모에게 flex를 줬기 때문에, 가로로 배치되되
+           사이즈에서는 부모의 flex의 영향을 안 받으려면 */
+        flex : none;
+
+        /* 그러므로, 자식 고유의 넓이를 고수한다 */
+        width: 25%;
+    
+        padding: 20px 10px;
+    }
+
+    .contents .contents_container .ul_01 li a {
+        display: block;
+    }
+
+    /* 이미지를 감싸는 박스 */
+    .contents .contents_container .ul_01 li a .img-box {
+        width: 100%;
+        height: 360px;
+
+        /* 이미지가 이 박스를 벗어날 경우 잘라냄 */
+        overflow: hidden;
+    }
+
+    .contents .contents_container .ul_01 li a .img-box img {
+        /* 이미지를 가득 채움 */
+        width: 100%;
+        height: 100%;
+
+        /* 이미지가 비율에 맞게 들어감 */
+        object-fit: cover;
+
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* 어디에 마우스를 갖다 대더라도, 이미지가 커질 수 있게 만들어야 하므로
+       img가 아닌 링크영역에게 hover를 줘야한다 */
+    .contents .contents_container .ul_01 li a:hover .img-box img {
+        transform: scale(1.1, 1.1);
+    }
+
+    .contents .contents_container .ul_01 li a .text-box {
+        padding: 15px 10px;
+        text-align: center;
+    }
+
+    .contents .contents_container .ul_01 li a .text-box h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        line-height: 130%;
+    }
+
+    .contents .contents_container .ul_01 li a .text-box p {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 120%;
+    }
+
+    @media only screen and (min-width : 600px) and (max-width : 768px) {
+        .contents .contents_container .ul_01 li {
+            width: 50%;
+        }
+    }
+
+    @media only screen and (max-width : 599px) {
+        .contents .contents_container .ul_01 li {
+            width: 100%;
+        }
+    }
+
+    .contents .contents_container .ul_02_pagenation {
+        display: flex;
+        justify-content: center;
+    }
+
+    .contents .contents_container .ul_02_pagenation li {
+        width: 32px;
+        height: 32px;
+    }
+
+    .contents .contents_container .ul_02_pagenation li a {
+        /* 쏠림 방지 set */
+        display: flex;
+        width: 100%; /* 부모요소인 li 태그를 가득 채워라 */
+        height: 100%; /* 부모요소인 li 태그를 가득 채워라 */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ul_02_pagenation li.active {
+        background-color: #000;
+    }
+
+    .ul_02_pagenation li.active a {
+        color: #fff;
+    }
+
+    .ul_02_pagenation li a:hover {
+        background-color: #eee;
+    }
+
+ /*--------------------------------------------- 
+ * 중앙 구분선
+ *---------------------------------------------*/
+    hr {
+        margin: 60px 0;
+        width: auto;
+        /* hr 태그는 border-top 또는 border-bottom 둘 중에 하나만 줘야함. 아니면 이중으로 잡힘 */
+        border-top: 1px solid #eee;
+        border-bottom: 0;
+    }
+ /*--------------------------------------------- 
+ * 쉐프 소개
+ *---------------------------------------------*/
+    .profile-container {
+        text-align: center;
+    }
+    
+    .profile-container h2 {
+        font-size: 32px;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }
+
+    .profile-container img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 26px;
+    }
+
+    .profile-container h3 {
+        font-size: 26px;
+        font-weight: 400;
+        margin-bottom: 16px;
+    }
+
+    .profile-container h4 {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 16px;
+    }
+
+    .profile-container p {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 150%;
+        margin-bottom: 30px;
+        padding: 0 25px;
+    }
