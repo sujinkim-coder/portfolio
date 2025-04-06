@@ -1,0 +1,127 @@
+/**
+ * 모든 페이지에서 사용될 공통적인 내용을 정의하는 파일
+ */
+
+// 공통 파일들 참조
+@import './_reset.scss';
+@import './_colors.scss';
+@import './_responsive.scss';
+
+// 모든 태그에 대한 기본 스타일 설정
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+// 링크에 대한 기본 설정
+a {
+    text-decoration: none;
+    color: $black;
+}
+
+/*----------------------------------------------------
+* 상단영역
+*----------------------------------------------------*/ 
+.header {
+    // 작업하는 동안의 임시 적용
+    // background-color: #ff000055;
+    position: absolute;
+    left: 0;
+    right: 0;
+    // 메뉴 영역이므로 다른 요소보다 위에 떠 있어야 한다.
+    z-index: 9999;
+    // position: absolute가 되면 사이즈를 명시해야 함
+    width: 100%;
+
+    .menu {
+        // 메뉴 영역의 넓이 제한 (최대 넓이 1800px 제한)
+        max-width: 1800px;
+        margin: auto;
+        display: flex;
+
+        li {
+            text-align: center;
+            
+            // 태블릿 사이즈 이하에서는 균등 분할
+            @include desktop-md {
+                width: 20%; // 20% x 5 = 100%
+            }
+
+            &:last-child {
+                margin-left: auto; // ;search'메뉴의 좌측 여백은 알아서 채우기
+
+                span {
+                    // 'search' 텍스트 표시 안하기
+                    display: none;
+                    
+                    // 태블릿 사이즈 이하에서는 'search' 텍스트 표시하기
+                    @include desktop-md {
+                        display: block;
+                    }
+                }
+            }
+
+            a {
+                display: block; // a랑 span태그는 사이즈를 주기 위해 '박스화' 필수
+                font-size: 18px;
+                font-weight: 500;
+                padding: 20px;
+
+                &:hover {
+                    background-color: $black-op;
+                }
+
+                span {
+                    margin-left: 10px;
+                    font-size: 17px;
+
+                    @include desktop-md {
+                        display: block; // a랑 span태그는 사이즈를 주기 위해 '박스화' 필수
+                        margin-top: 5px;
+                        margin-left: 0;
+                        font-size: 12px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: $dark-gray;
+    text-align: center;
+    padding: 50px 10px;
+
+    .to-the-top {
+        display: inline-block;
+        background-color: $light-gray;
+        padding: 10px 25px;
+
+        &:hover {
+            background-color: $pink;
+        }
+    }
+
+    .social-list {
+        display: flex;
+        justify-content: center;
+
+        i {
+            margin-right: 10px; 
+        }
+        
+        a {
+            display: block;
+            color : $white;
+            font-size: 35px;
+            margin: 20px 10px 40px 10px;
+        }
+    }
+
+    address {
+        color: $white;
+        font-size: 18px;
+    }
+}
